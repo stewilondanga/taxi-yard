@@ -554,6 +554,54 @@ hasInputs = (typeof node.getElementsByTagName == 'function') &&
 								    var t = list.length - 1;
 								    var swap = true;
 
+										while(swap) {
+								         swap = false;
+								         for(var i = b; i < t; ++i) {
+								             if ( comp_func(list[i], list[i+1]) > 0 ) {
+								                 var q = list[i]; list[i] = list[i+1]; list[i+1] = q;
+								                 swap = true;
+								             }
+								         } // for
+								         t--;
+
+								         if (!swap) break;
+
+								         for(var i = t; i > b; --i) {
+								             if ( comp_func(list[i], list[i-1]) < 0 ) {
+								                 var q = list[i]; list[i] = list[i-1]; list[i-1] = q;
+								                 swap = true;
+								             }
+								         } // for
+								         b++;
+
+								     } // while(swap)
+								   }
+								 }
+
+								 /* ******************************************************************
+								    Supporting functions: bundled here to avoid depending on a library
+								    ****************************************************************** */
+
+								 // Dean Edwards/Matthias Miller/John Resig
+
+								 /* for Mozilla/Opera9 */
+								 if (document.addEventListener) {
+								     document.addEventListener("DOMContentLoaded", sorttable.init, false);
+								 }
+
+								 /* for Internet Explorer */
+								 /*@cc_on @*/
+								 /*@if (@_win32)
+								     document.write("<script id=__ie_onload defer src=javascript:void(0)><\/script>");
+								     var script = document.getElementById("__ie_onload");
+								     script.onreadystatechange = function() {
+								         if (this.readyState == "complete") {
+								             sorttable.init(); // call the onload handler
+								         }
+								     };
+								 /*@end @*/
+
+								 /* for Safari */
 
 var navigate = (function() {
   $('.dd').toggle();
