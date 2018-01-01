@@ -89,6 +89,12 @@ border-collapse: separate !important;
 border-spacing: 0px !important;
 }
 
+body
+{
+width:expression(document.documentElement.clientWidth <= 1258? "1258px": "auto" ) !important;
+
+}
+
 
 
     h1 {
