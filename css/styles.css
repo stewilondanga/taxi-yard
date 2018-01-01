@@ -143,7 +143,22 @@ width: calc(100% - 4px)  !important;;
 
  }
 
+ /*
+ .filter-table th input, .filter-table th select, .filter-table th div{
+ /*width:calc(100% - 4px);*/
 
+ /*width: 95%; *//** older browsers **/
+ /*
+ width: -webkit-calc(100% - 4px) !important; /** Safari 6, Chrome 19-25 **/
+ /*
+ width: -moz-calc(100% - 4px !important; /** FF 4-15  **/
+ */
+ */
+ /*width: calc(100% "-" 4px);*/ /** FF 16+, IE 9+, Opera 15, Chrome 26+, Safari 7 and future other browsers **/
+
+
+ }
+ */
 
     h1 {
     	font-family: helvetica;
