@@ -10,160 +10,194 @@
 <body>
 
   <h1>Table Sorter Final</h1>
-    <input type="search" class="light-table-filter" data-table="search-table" placeholder="Search..">
-    <br/>
-    <br/>
+  <input type="search" class="light-table-filter" data-table="search-table" placeholder="Search..">
+  <br/>
+  <br/>
 
-    <div id="combito">
-        <div id="separator"></div>
-        <div class="opt-combito" id="asc">
-          <img src="images/hmenu-asc.gif" alt="" />
-          <span>Sort Ascending</span>
-        </div>
-        <div class="opt-combito" id="desc">
-          <img src="images/hmenu-desc.gif" alt="" />
-          <span>Sort Descending</span>
-        </div>
-      </div>
+  <div id="combito">
+    <div id="separator"></div>
+    <div class="opt-combito" id="asc">
+      <img src="images/hmenu-asc.gif" alt="" />
+      <span>Sort Ascending</span>
+    </div>
+    <div class="opt-combito" id="desc">
+      <img src="images/hmenu-desc.gif" alt="" />
+      <span>Sort Descending</span>
+    </div>
+  </div>
 
-      <table class="filter-table" style="border-spacing: 0px ;" border="1">
- <thead>
- <tr>
-<th style="padding: 0px;"><input type="text" style="display:block;width: 95%;margin-left: auto;margin-right: auto;" class="searchByColumn" /></th><th style="padding: 0px;"><input type="text" style="display:block;width: 95%;margin-left: auto;margin-right: auto;" class="searchByColumn" /></th><th style="padding: 0px;"><div style="width:95%"  />&nbsp;</div></th><th style="padding: 0px;"><input type="text" style="display:block;width: 95%;margin-left: auto;margin-right: auto;" class="searchByColumn" /></th><th style="padding: 0px;"><select   style="display:block;width: 95%;margin-left: auto;margin-right: auto;" class="searchByColumn" /><option selected="true" value="">--All--</option></select></th><th style="padding: 0px;"><select  style="display:block;width: 95%;margin-left: auto;margin-right: auto;" class="searchByColumn" /><option  selected="true" value="">--All--</option></select></th><th style="padding: 0px;"><select  style="display:block;width: 95%;margin-left: auto;margin-right: auto;" class="searchByColumn" /><option  selected="true" value="">--All--</option></select></th><th style="padding: 0px;">  <select style="display:block;width:95%;margin-left: auto;margin-right: auto;" class="searchByColumn" /><option  selected="true" value="">--All--</option></select></th><th style="padding: 0px;">  <select style="display:block;width: 95%;margin-left: auto;margin-right: auto;" class="searchByColumn" /><option  selected="true" value="">--All--</option></select></th>
-</tr>
-</thead>
+  <table class="filter-table" style="border-spacing: 0px ;" border="1">
+    <thead>
+      <tr>
+        <th style="padding: 0px;"><input type="text" style="display:block;width: 95%;margin-left: auto;margin-right: auto;" class="searchByColumn" /></th>
+        <th style="padding: 0px;"><input type="text" style="display:block;width: 95%;margin-left: auto;margin-right: auto;" class="searchByColumn" /></th>
+        <th style="padding: 0px;">
+          <div style="width:95%" />&nbsp;</div>
+        </th>
+        <th style="padding: 0px;"><input type="text" style="display:block;width: 95%;margin-left: auto;margin-right: auto;" class="searchByColumn" /></th>
+        <th style="padding: 0px;"><select style="display:block;width: 95%;margin-left: auto;margin-right: auto;" class="searchByColumn" />
+          <option selected="true" value="">--All--</option>
+          </select>
+        </th>
+        <th style="padding: 0px;"><select style="display:block;width: 95%;margin-left: auto;margin-right: auto;" class="searchByColumn" />
+          <option selected="true" value="">--All--</option>
+          </select>
+        </th>
+        <th style="padding: 0px;"><select style="display:block;width: 95%;margin-left: auto;margin-right: auto;" class="searchByColumn" />
+          <option selected="true" value="">--All--</option>
+          </select>
+        </th>
+        <th style="padding: 0px;"> <select style="display:block;width:95%;margin-left: auto;margin-right: auto;" class="searchByColumn" />
+          <option selected="true" value="">--All--</option>
+          </select>
+        </th>
+        <th style="padding: 0px;"> <select style="display:block;width: 95%;margin-left: auto;margin-right: auto;" class="searchByColumn" />
+          <option selected="true" value="">--All--</option>
+          </select>
+        </th>
+      </tr>
+    </thead>
 
- </table>
+  </table>
 
- <table border="1" id="tablita" class="sortable search-table">
-<thead>
-<tr>
-  <th class="menu" style="">ID<span class="gg"></span></th>
-	<th class="menu" style="">Name<span class="gg"></span></th>
-	<th class="menu" style="">Phone<span class="gg"></span></th>
-	<th class="menu" style="">Email<span class="gg"></span></th>
-	<th class="menu" style="">City<span class="gg"></span></th>
-	<th class="menu" style="">State<span class="gg"></span></th>
-	<th class="menu" style="">Zip Code<span class="gg"></span></th>
-	<th class="menu" style="">Status<span class="gg"></span></th>
-	<th class="menu" style="">Vehicle<span class="gg"></span></th>
-</tr>
+  <table border="1" id="tablita" class="sortable search-table">
+    <thead>
+      <tr>
+        <th class="menu" style="">ID<span class="gg"></span></th>
+        <th class="menu" style="">Name<span class="gg"></span></th>
+        <th class="menu" style="">Phone<span class="gg"></span></th>
+        <th class="menu" style="">Email<span class="gg"></span></th>
+        <th class="menu" style="">City<span class="gg"></span></th>
+        <th class="menu" style="">State<span class="gg"></span></th>
+        <th class="menu" style="">Zip Code<span class="gg"></span></th>
+        <th class="menu" style="">Status<span class="gg"></span></th>
+        <th class="menu" style="">Vehicle<span class="gg"></span></th>
+      </tr>
 
-</thead>
-  <tbody>
-		<tr>
-			<td>1</td>
-			<td>Kaseem Huber</td>
-			<td>(587) 117-5521</td>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>Kaseem Huber</td>
+        <td>(587) 117-5521</td>
 
-      <td>.@samecore.org</td>
-      			<td>Burlington</td>
-      			<td>DE</td>
-      			<td>81070</td>
-      			<td>Aproved</td>
-      			<td>Toyota</td>
-      		</tr>
-      		<tr>
-      			<td>2</td>
-      			<td>Oleg Michael</td>
-      			<td>(539) 184-8550</td>
+        <td>.@samecore.org</td>
+        <td>Burlington</td>
+        <td>DE</td>
+        <td>81070</td>
+        <td>Aproved</td>
+        <td>Toyota</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Oleg Michael</td>
+        <td>(539) 184-8550</td>
 
-            <td>pages@andit.edu</td>
-            			<td>Covina</td>
-            			<td>SC</td>
-            			<td>48758</td>
-            			<td>Aproved</td>
-            			<td>Toyota</td>
-            		</tr>
-            		<tr>
-            			<td>3</td>
-            			<td>Kibo Ochoa</td>
-            			<td>(837) 601-9918</td>
+        <td>pages@andit.edu</td>
+        <td>Covina</td>
+        <td>SC</td>
+        <td>48758</td>
+        <td>Aproved</td>
+        <td>Toyota</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Kibo Ochoa</td>
+        <td>(837) 601-9918</td>
 
-                  <td>Usenet.in@increasedopportunity.edu</td>
-                  			<td>Placentia</td>
-                  			<td>UT</td>
-                  			<td>09075</td>
-                  			<td>Aproved</td>
-                  			<td>Chevrolet</td>
-                  		</tr>
-                  		<tr>
-                  			<td>4</td>
-                  			<td>Joseph Lindsey</td>
-                  			<td>(303) 872-2482</td>
+        <td>Usenet.in@increasedopportunity.edu</td>
+        <td>Placentia</td>
+        <td>UT</td>
+        <td>09075</td>
+        <td>Aproved</td>
+        <td>Chevrolet</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Joseph Lindsey</td>
+        <td>(303) 872-2482</td>
 
-                        <td>the.variety@able.org</td>
-                        			<td>Murrieta</td>
-                        			<td>WA</td>
-                        			<td>17380</td>
-                        			<td>Aproved</td>
-                        			<td>Nissan</td>
-                        		</tr>
-                        		<tr>
-                        			<td>5</td>
-                        			<td>Forrest Schneider</td>
-                        			<td>(203) 666-7954</td>
+        <td>the.variety@able.org</td>
+        <td>Murrieta</td>
+        <td>WA</td>
+        <td>17380</td>
+        <td>Aproved</td>
+        <td>Nissan</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Forrest Schneider</td>
+        <td>(203) 666-7954</td>
+        <td>that@onUsenetin.edu</td>
+        <td>Louisville</td>
+        <td>WA</td>
+        <td>58263</td>
+        <td>Aproved</td>
+        <td>Hyundai</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>Fuller Garrett</td>
+        <td>&nbsp;</td>
 
-                              <td>that@onUsenetin.edu</td>
-                              			<td>Louisville</td>
-                              			<td>WA</td>
-                              			<td>58263</td>
-                              			<td>Aproved</td>
-                              			<td>Hyundai</td>
-                              		</tr>
-                              		<tr>
-                              			<td>6</td>
-                              			<td>Fuller Garrett</td>
-                              			<td>&nbsp;</td>
-
-                                    <td>some@technologythanits.com</td>
-                                    			<td>Winnemucca</td>
-                                    			<td>MD</td>
-                                    			<td>46070</td>
-                                    			<td>Pending</td>
-                                    			<td>Dodge</td>
-                                    		</tr>
-                                    		<tr>
-                                    			<td>7</td>
-                                    			<td>Kirk Mosley</td>
-                                    			<td>(310) 657-8879</td>
+        <td>some@technologythanits.com</td>
+        <td>Winnemucca</td>
+        <td>MD</td>
+        <td>46070</td>
+        <td>Pending</td>
+        <td>Dodge</td>
+      </tr>
+      <tr>
+        <td>7</td>
+        <td>Kirk Mosley</td>
+        <td>(310) 657-8879</td>
 
 
-  <section id="contact">
-		<div class="overlay">
-			<div class="containers">
-				<h2>get in touch...</h2>
 
-				<div id="container">
-					<div class="menu_btn">
-						<button class="dd_btn" data-name="dd_1">Facebook page</button>
-						<div class="dd dd_1">
-							<a href="javascript:void(0)">Stewart ilondanga</a>
-						</div><!--end dd_1-->
-					</div><!--end button-->
-					<div class="menu_btn">
-						<button class="dd_btn" data-name="dd_2">Twitter</button>
-						<div class="dd dd_2">
-							<a href="javascript:void(0)">@stew_ilondanga</a>
-					</div><!--end dd_1-->
-					</div><!--end button-->
-					<div class="menu_btn">
-						<button class="dd_btn" data-name="dd_3">Email</button>
-						<div class="dd dd_3">
-							<a href="javascript:void(0)">stemiisa@yahoo.com</a>
-							<a href="javascript:void(0)">stilondanga@gmail.com</a>
-							<a href="javascript:void(0)">stewilondanga@hotmail.com</a>
-						</div><!--end dd_1-->
-					</div><!--end button-->
-					<div class="menu_btn">
-						<button class="dd_btn" data-name="dd_4">Instagram</button>
-						<div class="dd dd_4">
-							<a href="javascript:void(0)">@stew_ilondanga</a>
-						</div><!--end dd_1-->
-					</div><!--end button-->
-				</div><!--end container-->
+        <section id="contact">
+          <div class="overlay">
+            <div class="containers">
+              <h2>get in touch...</h2>
 
-<h1>Created by Stewart ilondanga
+              <div id="container">
+                <div class="menu_btn">
+                  <button class="dd_btn" data-name="dd_1">Facebook page</button>
+                  <div class="dd dd_1">
+                    <a href="javascript:void(0)">Stewart ilondanga</a>
+                  </div>
+                  <!--end dd_1-->
+                </div>
+                <!--end button-->
+                <div class="menu_btn">
+                  <button class="dd_btn" data-name="dd_2">Twitter</button>
+                  <div class="dd dd_2">
+                    <a href="javascript:void(0)">@stew_ilondanga</a>
+                  </div>
+                  <!--end dd_1-->
+                </div>
+                <!--end button-->
+                <div class="menu_btn">
+                  <button class="dd_btn" data-name="dd_3">Email</button>
+                  <div class="dd dd_3">
+                    <a href="javascript:void(0)">stemiisa@yahoo.com</a>
+                    <a href="javascript:void(0)">stilondanga@gmail.com</a>
+                    <a href="javascript:void(0)">stewilondanga@hotmail.com</a>
+                  </div>
+                  <!--end dd_1-->
+                </div>
+                <!--end button-->
+                <div class="menu_btn">
+                  <button class="dd_btn" data-name="dd_4">Instagram</button>
+                  <div class="dd dd_4">
+                    <a href="javascript:void(0)">@stew_ilondanga</a>
+                  </div>
+                  <!--end dd_1-->
+                </div>
+                <!--end button-->
+              </div>
+              <!--end container-->
+
+              <h1>Created by Stewart ilondanga
 <script>
 with(new Date)c=-new Date(y=getFullYear(),m=getMonth()).getDay(x=new Date(y,++m,0).getDate(b=-1))
 h='<table class="cal"><caption> Copyright '+' '+y+'/'+m+'<tr>'+'SuMoTuWeThFrSa'.replace(/(..)/g,'<th>$1')
@@ -171,9 +205,9 @@ while((b++>5?b=0:b)|c<x)h+=(b?'':'<tr>')+'<td>'+(++c<1|c>x?'-':c);document.write
 </script>
 </h1>
 
-			</div>
-		</div>
-	</section>
+            </div>
+          </div>
+        </section>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
