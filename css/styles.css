@@ -124,6 +124,11 @@ border: 1px solid gray !important;
 
 }
 
+.search-table th, .search-table td{
+box-sizing: content-box !important;
+
+}
+
 
 
     h1 {
