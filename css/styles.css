@@ -129,7 +129,12 @@ box-sizing: content-box !important;
 
 }
 
+body.ie  .filter-table th input,body.ie  .filter-table th select,body.ie  .filter-table th div{
+width: 95% !important; /** older browsers - IE **/
 
+ }
+
+ 
 
     h1 {
     	font-family: helvetica;
