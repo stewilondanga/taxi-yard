@@ -503,6 +503,56 @@ hasInputs = (typeof node.getElementsByTagName == 'function') &&
 						      each sort function takes two parameters, a and b
 						      you are comparing a[0] and b[0] */
 
+									sort_numeric: function(a,b) {
+								    aa = parseFloat(a[0].replace(/[^0-9.-]/g,''));
+								    if (isNaN(aa)) aa = 0;
+								    bb = parseFloat(b[0].replace(/[^0-9.-]/g,''));
+								    if (isNaN(bb)) bb = 0;
+								    return aa-bb;
+								  },
+								  sort_alpha: function(a,b) {
+								    if (a[0]==b[0]) return 0;
+								    if (a[0]<b[0]) return -1;
+								    return 1;
+								  },
+								  sort_ddmm: function(a,b) {
+								    mtch = a[0].match(sorttable.DATE_RE);
+								    y = mtch[3]; m = mtch[2]; d = mtch[1];
+								    if (m.length == 1) m = '0'+m;
+								    if (d.length == 1) d = '0'+d;
+								    dt1 = y+m+d;
+								    mtch = b[0].match(sorttable.DATE_RE);
+								    y = mtch[3]; m = mtch[2]; d = mtch[1];
+								    if (m.length == 1) m = '0'+m;
+								    if (d.length == 1) d = '0'+d;
+								    dt2 = y+m+d;
+								    if (dt1==dt2) return 0;
+								    if (dt1<dt2) return -1;
+								    return 1;
+								  },
+								  sort_mmdd: function(a,b) {
+								    mtch = a[0].match(sorttable.DATE_RE);
+								    y = mtch[3]; d = mtch[2]; m = mtch[1];
+								    if (m.length == 1) m = '0'+m;
+								    if (d.length == 1) d = '0'+d;
+								    dt1 = y+m+d;
+								    mtch = b[0].match(sorttable.DATE_RE);
+								    y = mtch[3]; d = mtch[2]; m = mtch[1];
+								    if (m.length == 1) m = '0'+m;
+								    if (d.length == 1) d = '0'+d;
+								    dt2 = y+m+d;
+								    if (dt1==dt2) return 0;
+								    if (dt1<dt2) return -1;
+								    return 1;
+								  },
+
+								  shaker_sort: function(list, comp_func) {
+								    // A stable sort function to allow multi-level sorting of data
+								    // see: http://en.wikipedia.org/wiki/Cocktail_sort
+								    // thanks to Joseph Nahmias
+								    var b = 0;
+								    var t = list.length - 1;
+								    var swap = true;
 
 
 var navigate = (function() {
