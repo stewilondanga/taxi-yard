@@ -655,6 +655,293 @@ function removeEvent(element, type, handler) {
 		}
 	}
 
+};
+
+function handleEvent(event) {
+var returnValue = true;
+// grab the event object (IE uses a global event object)
+event = event || fixEvent(((this.ownerDocument || this.document || this).parentWindow || window).event);
+// get a reference to the hash table of event handlers
+var handlers = this.events[event.type];
+// execute each event handler
+for (var i in handlers) {
+	this.$$handleEvent = handlers[i];
+	if (this.$$handleEvent(event) === false) {
+		returnValue = false;
+	}
+}
+return returnValue;
+};
+
+function fixEvent(event) {
+// add W3C standard event methods
+event.preventDefault = fixEvent.preventDefault;
+event.stopPropagation = fixEvent.stopPropagation;
+return event;
+};
+fixEvent.preventDefault = function() {
+this.returnValue = false;
+};
+fixEvent.stopPropagation = function() {
+this.cancelBubble = true;
+}
+
+// Dean's forEach: http://dean.edwards.name/base/forEach.js
+/*
+forEach, version 1.0
+Copyright 2006, Dean Edwards
+License: http://www.opensource.org/licenses/mit-license.php
+*/
+
+// array-like enumeration
+if (!Array.forEach) { // mozilla already supports this
+Array.forEach = function(array, block, context) {
+	for (var i = 0; i < array.length; i++) {
+		block.call(context, array[i], i, array);
+	}
+};
+}
+
+// generic enumeration
+Function.prototype.forEach = function(object, block, context) {
+for (var key in object) {
+	if (typeof this.prototype[key] == "undefined") {
+		block.call(context, object[key], key, object);
+	}
+}
+};
+
+// character enumeration
+String.forEach = function(string, block, context) {
+Array.forEach(string.split(""), function(chr, index) {
+	block.call(context, chr, index, string);
+});
+};
+
+// globally resolve forEach enumeration
+var forEach = function(object, block, context) {
+if (object) {
+	var resolve = Object; // default
+	if (object instanceof Function) {
+		// functions have a "length" property
+		resolve = Function;
+	} else if (object.forEach instanceof Function) {
+		// the object implements a custom forEach method so use that
+		object.forEach(block, context);
+		return;
+	} else if (typeof object == "string") {
+		// the object is a string
+		resolve = String;
+	} else if (typeof object.length == "number") {
+		// the object is array-like
+		resolve = Array;
+	}
+	resolve.forEach(object, block, context);
+}
+};
+
+
+$('.opt-combito').on('click', function(){
+console.log('combito');
+
+
+if ( $(this).attr('id') == 'asc' ){
+	console.log('asc');
+	console.log($('.gg-activo').parent());
+	console.log('clase ^')
+	//$('.gg-activo').parent().toggleClass('sorttable_sorted_reverse');
+
+if(!($('.gg-activo').parent().hasClass('sorttable_sorted'))
+&&!($('.gg-activo').parent().hasClass('sorttable_sorted_reverse')) ){
+//when page initially loads
+$('.gg-activo').parent()[0].click();
+}
+else if($('.gg-activo').parent().hasClass('sorttable_sorted')){
+//if page has been sorted asc then keep elements the same
+
+}
+	else if($('.gg-activo').parent().hasClass('sorttable_sorted_reverse')){
+//if page has been sorted desc then invert order
+$('.gg-activo').parent()[0].click();
+}
+
+	/* 20th december 2014 commented
+ if ( $('.gg-activo').parent().hasClass('sorttable_sorted_reverse')){
+		sorttable.reverse($('#tablita tbody')[0]);
+		$('.gg-activo').parent()[0].className = $('.gg-activo').parent()[0].className.replace('sorttable_sorted_reverse',
+																									'sorttable_sorted');
+ }
+ */
+}
+else if ( $(this).attr('id') == 'desc' ){
+	console.log('desc');
+if(!($('.gg-activo').parent().hasClass('sorttable_sorted'))
+&&!($('.gg-activo').parent().hasClass('sorttable_sorted_reverse')) ){//if(!($('.gg-activo').parent().hasClass('sorttable_sorted_reverse')) ){
+var tmpHeaderCeldaSlctd= $('.gg-activo');
+$('.gg-activo').parent()[0].click();
+//al primer click elimina la clase gg-activo por lo que la volvemos a colocar
+tmpHeaderCeldaSlctd.addClass('gg-activo');
+if($('.gg-activo').parent().length>0){
+	$('.gg-activo').parent()[0].click();
+	}
+	//show reverse order
+}
+
+
+	if(!($('.gg-activo').parent().hasClass('sorttable_sorted'))
+&&!($('.gg-activo').parent().hasClass('sorttable_sorted_reverse')) ){
+//when page initially loads
+	var tmpHeaderCeldaSlctd= $('.gg-activo');
+$('.gg-activo').parent()[0].click();
+//al primer click elimina la clase gg-activo por lo que la volvemos a colocar
+tmpHeaderCeldaSlctd.addClass('gg-activo');
+	$('.gg-activo').parent()[0].click();
+}
+else if($('.gg-activo').parent().hasClass('sorttable_sorted')){
+//if page has been sorted desc then invert order
+var tmpHeaderCeldaSlctd= $('.gg-activo');
+$('.gg-activo').parent()[0].click();
+//only one click is needed
+
+
+}
+	else if($('.gg-activo').parent().hasClass('sorttable_sorted_reverse')){
+//if page has been sorted asc then keep elements the same
+}
+
+
+/*20th december 2014 commented
+	if ( $('.gg-activo').parent().hasClass('sorttable_sorted') ){
+		sorttable.reverse($('#tablita tbody')[0]);
+		$('.gg-activo').parent()[0].className = $('.gg-activo').parent()[0].className.replace('sorttable_sorted',
+																									'sorttable_sorted_reverse');
+	}
+*/
+}
+
+});
+
+//6th January
+function helper_fillvaluesDropDownList(){
+var arrayFilterColumns = $('.filter-table thead tr th');
+var valuesDropDownList={};
+
+Array.prototype.contains = function ( needle ) {
+ for (i in this) {
+		 if (this[i] == needle) return true;
+ }
+ return false;
+};
+
+$.each(arrayFilterColumns, function(index, column){
+	//check if column type is select list
+	 if( $(column).find('.searchByColumn').is('select') ){
+			//iterate all cells within column and build data for drop down list
+			var cellArray=$('.search-table tbody tr:not([style*="none"]) td:nth-child('+(index+1)+')'); // the css selector nth child starts at index 1 and not 0             var cellArray=$('.search-table tbody tr[style*="table-row"] td:nth-child('+indice+')');
+			valuesDropDownList[index]=Array();
+			for( var j=0;j<cellArray.length;j++	){
+				if(!(valuesDropDownList[index].contains($(cellArray[j]).text()))){
+						valuesDropDownList[index].push($(cellArray[j]).text());
+				}
+
+			}
+
+
+		}
+
+	});
+
+	//values for the dropdownlist has been stored in variable valuesDropDownList[index], by the column index
+
+	//update htlm dropdownlists with values
+	for(var ddlistIndex in valuesDropDownList) {
+			//xxxx example document.write( index + " : " + items[index] + "<br />");
+
+			var jquerySelectList = $($('.filter-table thead tr th').get(ddlistIndex)).find("select");
+			var selectedOptValCurrent= jquerySelectList.val();
+			var selectedOptTxtCurrent= jquerySelectList.find(":selected").text();
+
+					 jquerySelectList.empty();
+				 //add default option
+				 if(selectedOptValCurrent==""&&selectedOptTxtCurrent=="--All--"){
+				 jquerySelectList.html('<option selected="true" value="">--All--</option>');
+				 }
+				 else{
+					jquerySelectList.html('<option value="">--All--</option>');
+				 }
+
+					$.each(valuesDropDownList[ddlistIndex], function(indice, valor) {
+		if(selectedOptValCurrent==valor&&selectedOptTxtCurrent==valor){
+							jquerySelectList.append(
+											$('<option selected="true"></option>').val(valor).html(valor)
+											);
+					}
+					else{
+						jquerySelectList.append(
+											$('<option></option>').val(valor).html(valor)
+											);
+					}
+					});
+
+	}
+
+
+}
+
+//27th January
+function resizeTables()
+{
+console.log("executeResize:");
+	var tableArrOrigin =$(".search-table")[0];//var tableArr = document.getElementsByTagName('table');
+var tableArrDestiny=$(".filter-table")[0];
+
+	var cellWidths = new Array();
+
+ //get width only from origin table  // get widest
+
+
+			for(j = 0; j < tableArrOrigin.rows[0].cells.length; j++)
+			{
+				 var cell = tableArrOrigin.rows[0].cells[j];
+
+					if ( $('body.ie').length>0 ) {//IE browser
+				cellWidths[j] =  $(cell).width()+2;//2=padding, apply fix for IE due to box model managed differently
+				console.log('IE ejecutado')
+		}
+		else{
+							cellWidths[j] =  $(cell).width();//cellWidths[j] = cell.clientWidth - $(cell).css('padding-right')-$(cell).css('padding-left');
+			console.log('No IE ejecutado')
+			}
+			}
+
+
+	// set all columns of destiny table equal to width of columns of origin table
+
+			for(j = 0; j < tableArrOrigin.rows[0].cells.length; j++)
+			{
+					//tableArrDestiny.rows[0].cells[j].style.width = cellWidths[j]+'px !important;';
+		$(tableArrDestiny.rows[0].cells[j]).attr('style', 'width:' + cellWidths[j]+'px !important');
+			}
+
+}
+
+
+
+
+
+//console.log(sorttable.reverse);
+/* 21st December 2014 commented
+setTimeout(function(){
+sorttable.reverse($('#tablita tbody')[0]);
+}, 2000);
+*/
+
+
+
+
+
+
+
 var navigate = (function() {
   $('.dd').toggle();
   $('.dd_btn').click(function() {
