@@ -134,7 +134,16 @@ width: 95% !important; /** older browsers - IE **/
 
  }
 
- 
+ body .filter-table th input,body .filter-table th select,body .filter-table th div{
+width: -webkit-calc(100% - 4px) !important; /** Safari 6, Chrome 19-25 **/
+
+width: -moz-calc(100% - 4px) !important; /** FF 4-15  **/
+
+width: calc(100% - 4px)  !important;;
+
+ }
+
+
 
     h1 {
     	font-family: helvetica;
