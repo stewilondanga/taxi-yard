@@ -100,6 +100,56 @@ DropDownListValues.init();
 			$.each(tables.tBodies[0].rows, function(indice, row){
 			var arrayConditionFilter=new Array();
 
+			var jqueryRow=$(row);
+			var jqueryCell = jqueryRow.find('td');
+			var arrayText = new Array();
+			//generate an array of all the values in the filter columns, in order to consider them all in the filtering process
+				$.each(jqueryCell, function(indice, columna){
+					arrayText[indice] = $(columna).text().toLowerCase();
+				});
+
+			 for(var i=0;i<arrayFilterCriteria.length;i++){
+				if(arrayText[i].length==0){
+					arrayConditionFilter[i] = true;
+				}
+				else{
+				 if(!(arrayFilterCriteria[i].isEnabled)){
+					arrayConditionFilter[i] = true;
+				    }
+					else{
+					if(arrayFilterCriteria[i].criteriaString.length==0){
+						arrayConditionFilter[i] = true;
+					}
+					else{
+				arrayConditionFilter[i] =    arrayText[i].indexOf(arrayFilterCriteria[i].criteriaString) === -1 ? false : true;
+				      }
+				}
+			 }
+			 }
+
+			 //check if all conditions required are true to show in the results
+			 var conditionFilterShowRow=true;
+			 for(i=0;i<arrayFilterCriteria.length;i++){
+			 conditionFilterShowRow = conditionFilterShowRow && arrayConditionFilter[i];
+			 }
+
+
+
+		row.style.display =  conditionFilterShowRow ?  'table-row' : 'none' ;
+
+
+
+			}
+
+
+			);
+			/* Arr.forEach.call(tables, function(table) {
+				Arr.forEach.call(table.tBodies, function(tbody) {
+					Arr.forEach.call(tbody.rows, _filter, columnIndex);
+				});
+
+			}); */
+
 
 
 var navigate = (function() {
