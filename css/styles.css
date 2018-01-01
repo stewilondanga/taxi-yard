@@ -115,6 +115,15 @@ body.ie .filter-table th,body.ie .filter-table  td{
 box-sizing: border-box  !important;
 }
 
+.filter-table th,.filter-table  td{
+
+display: inline-block;
+padding:1px !important;
+border: 1px solid gray !important;
+
+
+}
+
 
 
     h1 {
