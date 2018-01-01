@@ -77,6 +77,12 @@ table, tr th, .gg {
 
 //27th january
 
+.filter-table {
+border-spacing: 0px !important;
+width:100% !important;
+border:   solid transparent 1px !important;
+border-collapse: separate !important;
+
 
 
     h1 {
