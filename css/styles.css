@@ -83,6 +83,12 @@ width:100% !important;
 border:   solid transparent 1px !important;
 border-collapse: separate !important;
 
+}
+.search-table{
+border-collapse: separate !important;
+border-spacing: 0px !important;
+}
+
 
 
     h1 {
