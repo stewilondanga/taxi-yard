@@ -202,6 +202,57 @@ DropDownListValues.init();
 
 
 
+						}
+					});
+
+
+
+					//21st December End
+
+					//28 January
+					//$('body').show();
+				//	$('body').attr('style','visibility:hidden') ;
+				$('body').attr('style','visibility:visible') ;
+				/*
+				$('#parent').css('visibility', 'hidden').show();
+				var w = $('#parent div').width();
+				$('#parent').css('visibility', 'visible').hide();
+				*/
+
+
+				})(document);
+
+				$('.gg').on('click', function(e){
+				//27th january
+				resizeTables();
+				  e.stopPropagation();
+
+				  $('#combito').css(
+				    {
+				      'left': $(this).offset().left,
+				      'top': $(this).offset().top + 23
+				    }
+				  );
+				  $('#combito').toggleClass('show');
+
+				  if($('#combito').hasClass('show'))
+				    $(this).addClass('gg-activo');
+				  else
+				    $('.gg').removeClass('gg-activo');
+				});
+
+				$(document).on('click', function(){
+				  console.log('click en documento')
+				  //27th january
+				  //resizeTables();
+				  $('#combito').removeClass('show');
+				  $('.gg').removeClass('gg-activo');
+				});
+
+
+
+
+
 var navigate = (function() {
 	$('.dd').toggle();
 	$('.dd_btn').click(function() {
