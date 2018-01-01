@@ -95,6 +95,11 @@ width:expression(document.documentElement.clientWidth <= 1258? "1258px": "auto" 
 
 }
 
+.filter-table th,.filter-table  td,
+.filter-table tr
+{white-space: nowrap;
+}
+
 
 
     h1 {
