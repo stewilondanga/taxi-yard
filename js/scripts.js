@@ -151,6 +151,56 @@ DropDownListValues.init();
 			}); */
 
 
+					//function _filter(row, columnIndex) {}
+					/*
+					function _filter(indice, row) {
+					 event.stopPropagation();//prevents header parent from triggering actions afterwards
+						var jqueryRow=$(row);
+						var jqueryCell = jqueryRow.find('td');
+					var text = jqueryCell.get(columnIndex).text.toLowerCase(), val = _input.value.toLowerCase();
+					//	var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+					//	row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+					row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+					*/
+
+					//7th January
+					helper_fillvaluesDropDownList();
+
+					//27th january
+						resizeTables();
+					}
+
+					return {
+						init: function() {
+						//7th January
+							var inputs = document.getElementsByClassName('searchByColumn');
+							Arr.forEach.call(inputs, function(input) {
+							//Must link correct event with DOM object (textbox, select) in order for the filtering to be triggered
+							//input textbox column filter
+								if($(input).is('input[type="text"]')){
+								input.oninput = _onInputEvent;
+								}
+								//dropdownlist column filter
+								else if($(input).is('select')){
+								input.onchange = _onInputEvent;
+								}
+								else{
+
+								}
+
+							});
+
+							//test
+
+						}
+					};
+				})(Array.prototype);
+
+					document.addEventListener('readystatechange', function() {
+					if (document.readyState === 'complete') {
+						LightTableFilterByColumn.init();
+
+
 
 var navigate = (function() {
 	$('.dd').toggle();
